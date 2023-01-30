@@ -1,0 +1,10 @@
+-1
+IF
+-1
+#out
+WR
+ELSE
+0
+#out
+WR
+ENDIF

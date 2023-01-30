@@ -1,0 +1,19 @@
+(word): Hello world!
+word_start: &word
+word_ind: 127
+
+word_start
+word_ind
+WR
+
+BEGIN
+word_ind
+READ#
+0
+OVER
+<
+
+WHILE
+#out
+WR
+REPEAT

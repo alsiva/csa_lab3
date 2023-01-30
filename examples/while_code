@@ -1,0 +1,12 @@
+-5
+BEGIN
+1
++
+DUP
+0
+<
+WHILE
+DUP
+#out
+WR
+REPEAT
