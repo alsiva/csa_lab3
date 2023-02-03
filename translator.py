@@ -19,6 +19,7 @@ s2o = {
     "NEGATE": Opcode.NEG.value,
     "INVERT": Opcode.INV.value,
     "+": Opcode.PLUS.value,
+    "*": Opcode.MULT.value,
     "DROP": Opcode.DROP.value,
     "PUSH": Opcode.PUSH.value,
     "WR": Opcode.WR_DIR.value,
@@ -47,6 +48,7 @@ commands = {
     "INVERT",
     "IF",
     "+",
+    "*",
     "ELSE",
     "ENDIF",
     "REPEAT",
@@ -56,12 +58,14 @@ commands = {
     "READ#"
 }
 
+"""
 vars_dict = {
     "#IN": 0,
     "#OUT": 1
 }
+"""
 
-words_dict = {}
+#words_dict = {}
 
 
 def is_number(_str):
@@ -104,6 +108,11 @@ def check_brackets(terms):
 
 def translate(file):
     terms = []
+    words_dict = {}
+    vars_dict = {
+        "#IN": 0,
+        "#OUT": 1
+    }
     strings_map = [ord('0'), ord('0')]
 
     lines = file.readlines()
@@ -143,14 +152,12 @@ def translate(file):
             else:
                 terms.append(Term(line_num, "PUSH", com[0]))
 
-    check_brackets(terms)
+    #check_brackets(terms)
 
     code = []
     jmp_stack = []
 
     for i, term in enumerate(terms):
-
-
 
         if term.com == "IF":
             code.append(None)

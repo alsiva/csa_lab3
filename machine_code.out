@@ -1,47 +1,20 @@
 [
     {
         "opcode": "PUSH",
-        "arg": "0",
-        "term": [
-            1,
-            "PUSH",
-            "0"
-        ]
-    },
-    {
-        "opcode": "PUSH",
-        "arg": "-1",
-        "term": [
-            2,
-            "PUSH",
-            "-1"
-        ]
-    },
-    {
-        "opcode": "PUSH",
-        "arg": "-1",
-        "term": [
-            3,
-            "PUSH",
-            "-1"
-        ]
-    },
-    {
-        "opcode": "PUSH",
-        "arg": "-1",
+        "arg": "5",
         "term": [
             4,
             "PUSH",
-            "-1"
+            "5"
         ]
     },
     {
         "opcode": "PUSH",
-        "arg": "-1",
+        "arg": "0",
         "term": [
             5,
             "PUSH",
-            "-1"
+            "0"
         ]
     },
     {
@@ -54,18 +27,54 @@
         ]
     },
     {
-        "opcode": "BEGIN",
+        "opcode": "PUSH",
+        "arg": "-1",
         "term": [
             7,
+            "PUSH",
+            "-1"
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "-1",
+        "term": [
+            8,
+            "PUSH",
+            "-1"
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "-1",
+        "term": [
+            9,
+            "PUSH",
+            "-1"
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "-1",
+        "term": [
+            10,
+            "PUSH",
+            "-1"
+        ]
+    },
+    {
+        "opcode": "BEGIN",
+        "term": [
+            11,
             "BEGIN",
             null
         ]
     },
     {
         "opcode": "JNT",
-        "arg": 13,
+        "arg": 14,
         "term": [
-            8,
+            12,
             "WHILE",
             null
         ]
@@ -74,7 +83,7 @@
         "opcode": "PUSH",
         "arg": 0,
         "term": [
-            9,
+            13,
             "PUSH",
             0
         ]
@@ -82,7 +91,7 @@
     {
         "opcode": "READ_DIR",
         "term": [
-            10,
+            14,
             "READ",
             null
         ]
@@ -91,7 +100,7 @@
         "opcode": "PUSH",
         "arg": 1,
         "term": [
-            11,
+            15,
             "PUSH",
             1
         ]
@@ -99,16 +108,16 @@
     {
         "opcode": "WRITE_DIR",
         "term": [
-            12,
+            16,
             "WR",
             null
         ]
     },
     {
         "opcode": "JMP",
-        "arg": 7,
+        "arg": 8,
         "term": [
-            13,
+            17,
             "REPEAT",
             null
         ]
@@ -116,7 +125,7 @@
     {
         "opcode": "HALT",
         "term": [
-            14,
+            15,
             "HALT",
             null
         ]

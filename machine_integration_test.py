@@ -21,6 +21,10 @@ def start(source_code, output_file, input_file, data_sect):
 
 class TestMachine(unittest.TestCase):
 
+    def test_prob5(self):
+        output = start("examples/prob5_code", "machine_code.out", "", "examples/data_section")
+        print(output)
+
     def test_hello(self):
         output = start("examples/hello_world_code", "data_sectionmachine_code.out", "", "examples/data_section")
         assert output[0] == 'H' and output[1] == 'e' and output[2] == 'l' \
