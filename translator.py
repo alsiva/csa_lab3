@@ -12,6 +12,8 @@ from isa import Opcode, write_code, Term
 
 s2o = {
     "OVER": Opcode.OVER.value,
+    "POW": Opcode.POW.value,
+    "/": Opcode.DIV.value,
     ".": Opcode.PRINT.value,
     "DUP": Opcode.DUP.value,
     "<": Opcode.LT.value,
@@ -49,6 +51,8 @@ commands = {
     "IF",
     "+",
     "*",
+    "/",
+    'POW',
     "ELSE",
     "ENDIF",
     "REPEAT",

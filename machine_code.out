@@ -453,9 +453,607 @@
         ]
     },
     {
+        "opcode": "PUSH",
+        "arg": "2",
+        "term": [
+            56,
+            "PUSH",
+            "2"
+        ]
+    },
+    {
+        "opcode": "BEGIN",
+        "term": [
+            57,
+            "BEGIN",
+            null
+        ]
+    },
+    {
+        "opcode": "DUP",
+        "term": [
+            58,
+            "DUP",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "20",
+        "term": [
+            59,
+            "PUSH",
+            "20"
+        ]
+    },
+    {
+        "opcode": "LT",
+        "term": [
+            60,
+            "<",
+            null
+        ]
+    },
+    {
+        "opcode": "JNT",
+        "arg": 96,
+        "term": [
+            61,
+            "WHILE",
+            null
+        ]
+    },
+    {
+        "opcode": "DUP",
+        "term": [
+            62,
+            "DUP",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "2",
+        "term": [
+            63,
+            "PUSH",
+            "2"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            64,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "READ_DIR",
+        "term": [
+            65,
+            "READ",
+            null
+        ]
+    },
+    {
+        "opcode": "DUP",
+        "term": [
+            66,
+            "DUP",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            67,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "LT",
+        "term": [
+            68,
+            "<",
+            null
+        ]
+    },
+    {
+        "opcode": "JNT",
+        "arg": 72,
+        "term": [
+            69,
+            "IF",
+            null
+        ]
+    },
+    {
+        "opcode": "DROP",
+        "term": [
+            70,
+            "DROP",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            71,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            72,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "JMP",
+        "arg": 95,
+        "term": [
+            73,
+            "ELSE",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "2",
+        "term": [
+            74,
+            "PUSH",
+            "2"
+        ]
+    },
+    {
+        "opcode": "BEGIN",
+        "term": [
+            75,
+            "BEGIN",
+            null
+        ]
+    },
+    {
+        "opcode": "OVER",
+        "term": [
+            76,
+            "OVER",
+            null
+        ]
+    },
+    {
+        "opcode": "OVER",
+        "term": [
+            77,
+            "OVER",
+            null
+        ]
+    },
+    {
+        "opcode": "SWAP",
+        "term": [
+            78,
+            "SWAP",
+            null
+        ]
+    },
+    {
+        "opcode": "POW",
+        "term": [
+            79,
+            "POW",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "20",
+        "term": [
+            80,
+            "PUSH",
+            "20"
+        ]
+    },
+    {
+        "opcode": "LT",
+        "term": [
+            81,
+            "<",
+            null
+        ]
+    },
+    {
+        "opcode": "JNT",
+        "arg": 84,
+        "term": [
+            82,
+            "WHILE",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            83,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            84,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "JMP",
+        "arg": 74,
+        "term": [
+            85,
+            "REPEAT",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "-1",
+        "term": [
+            86,
+            "PUSH",
+            "-1"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            87,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "SWAP",
+        "term": [
+            88,
+            "SWAP",
+            null
+        ]
+    },
+    {
+        "opcode": "POW",
+        "term": [
+            89,
+            "POW",
+            null
+        ]
+    },
+    {
+        "opcode": "OVER",
+        "term": [
+            90,
+            "OVER",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "2",
+        "term": [
+            91,
+            "PUSH",
+            "2"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            92,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "WRITE_DIR",
+        "term": [
+            93,
+            "WR",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            94,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            95,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "NOP",
+        "term": [
+            96,
+            "ENDIF",
+            null
+        ]
+    },
+    {
+        "opcode": "JMP",
+        "arg": 56,
+        "term": [
+            97,
+            "REPEAT",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            99,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "BEGIN",
+        "term": [
+            100,
+            "BEGIN",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            101,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            102,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "DUP",
+        "term": [
+            103,
+            "DUP",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "20",
+        "term": [
+            104,
+            "PUSH",
+            "20"
+        ]
+    },
+    {
+        "opcode": "LT",
+        "term": [
+            105,
+            "<",
+            null
+        ]
+    },
+    {
+        "opcode": "JNT",
+        "arg": 125,
+        "term": [
+            106,
+            "WHILE",
+            null
+        ]
+    },
+    {
+        "opcode": "DUP",
+        "term": [
+            107,
+            "DUP",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "2",
+        "term": [
+            108,
+            "PUSH",
+            "2"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            109,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "READ_DIR",
+        "term": [
+            110,
+            "READ",
+            null
+        ]
+    },
+    {
+        "opcode": "DUP",
+        "term": [
+            111,
+            "DUP",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            112,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "LT",
+        "term": [
+            113,
+            "<",
+            null
+        ]
+    },
+    {
+        "opcode": "JNT",
+        "arg": 114,
+        "term": [
+            114,
+            "IF",
+            null
+        ]
+    },
+    {
+        "opcode": "DROP",
+        "term": [
+            115,
+            "DROP",
+            null
+        ]
+    },
+    {
+        "opcode": "JMP",
+        "arg": 124,
+        "term": [
+            116,
+            "ELSE",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            117,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "2",
+        "term": [
+            118,
+            "PUSH",
+            "2"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            119,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "READ_DIR",
+        "term": [
+            120,
+            "READ",
+            null
+        ]
+    },
+    {
+        "opcode": "MULT",
+        "term": [
+            121,
+            "*",
+            null
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "1",
+        "term": [
+            122,
+            "PUSH",
+            "1"
+        ]
+    },
+    {
+        "opcode": "PUSH",
+        "arg": "2",
+        "term": [
+            123,
+            "PUSH",
+            "2"
+        ]
+    },
+    {
+        "opcode": "PLUS",
+        "term": [
+            124,
+            "+",
+            null
+        ]
+    },
+    {
+        "opcode": "WRITE_DIR",
+        "term": [
+            125,
+            "WR",
+            null
+        ]
+    },
+    {
+        "opcode": "NOP",
+        "term": [
+            126,
+            "ENDIF",
+            null
+        ]
+    },
+    {
+        "opcode": "JMP",
+        "arg": 98,
+        "term": [
+            127,
+            "REPEAT",
+            null
+        ]
+    },
+    {
         "opcode": "WRITE_NDR",
         "term": [
-            55,
+            128,
             "WR#",
             null
         ]
@@ -463,7 +1061,7 @@
     {
         "opcode": "HALT",
         "term": [
-            56,
+            127,
             "HALT",
             null
         ]

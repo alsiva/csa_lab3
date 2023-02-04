@@ -154,6 +154,9 @@ class DataPath:
         if op_sel == Opcode.MULT.value:
             self.alu = int(self.get_tos(1)) * int(self.get_tos(0))
 
+        if op_sel == Opcode.POW.value:
+            self.alu = int(self.get_tos(0)) ** int(self.get_tos(1))
+
         if op_sel == Opcode.LT.value:
             self.alu = (0, -1)[int(self.get_tos(1)) < int(self.get_tos(0))]
 
@@ -302,6 +305,8 @@ class ControlUnit:
                       Opcode.PLUS.value,
                       Opcode.MULT.value,
                       Opcode.LT.value,
+                      Opcode.DIV.value,
+                      Opcode.POW.value,
                       Opcode.NEG.value,
                       Opcode.INV.value}:
 

@@ -20,6 +20,8 @@ class Opcode(str, Enum):
     MOD = 'MOD'
     PLUS = 'PLUS'
     MULT = 'MULT'
+    DIV = 'DIV'
+    POW = 'POW'
     LT = 'LT'
     NEG = 'NEG'
     INV = 'INVERT'

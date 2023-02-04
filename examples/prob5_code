@@ -52,4 +52,77 @@ BEGIN
         DUP
     ENDIF
 REPEAT
+
+2
+BEGIN
+    DUP
+    20
+    <
+    WHILE
+    DUP
+    2
+    +
+    READ
+    DUP
+    1
+    <
+    IF
+        DROP
+        1
+        +
+    ELSE
+        2
+        BEGIN
+            OVER
+            OVER
+            SWAP
+            POW
+            20
+            <
+            WHILE
+            1
+            +
+        REPEAT
+        -1
+        +
+        SWAP
+        POW
+        OVER
+        2
+        +
+        WR
+        1
+        +
+    ENDIF
+REPEAT
+
+1
+BEGIN
+    1
+    +
+    DUP
+    20
+    <
+    WHILE
+    DUP
+    2
+    +
+    READ
+    DUP
+    1
+    <
+        IF
+            DROP
+        ELSE
+            1
+            2
+            +
+            READ
+            *
+            1
+            2
+            +
+            WR
+    ENDIF
+REPEAT
 WR#
