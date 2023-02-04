@@ -300,6 +300,7 @@ class ControlUnit:
 
         if opcode in {Opcode.MOD.value,
                       Opcode.PLUS.value,
+                      Opcode.MULT.value,
                       Opcode.LT.value,
                       Opcode.NEG.value,
                       Opcode.INV.value}:

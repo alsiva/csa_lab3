@@ -1,41 +1,55 @@
-n: 20
 0
 BEGIN
     DUP
     1
     +
     DUP
-    n
+    DUP
+    2
+    +
+    WR
+    DUP
+    20
     <
     WHILE
 REPEAT
-[0...20]
-p: 1
+1
+1
 BEGIN
-    p [0...20, p]
-    n [0...20, p, 20]
+    20
     <
-    WHILE [0...20]
+    WHILE
+    1
+    +
+    DUP
     0
-    p [0...20, 0, p]
+    SWAP
+    2
+    +
+    READ
     <
-    IF [0...20]
-    p
-    p
-    * [0...20, p^2]
-    DUP [0...20, p^2, p^2]
-    BEGIN
-        n [0...20, p^2, p^2, n]
-        1
-        + [0...20, p^2, p^2, n+1]
-        <
-        WHILE [0...20, p^2]
-        DUP [0...20, p^2, p^2]
-        0 [0...20, p^2, p^2, 0]
-        WR [0...20, p^2] -------------primes[i]=0
-        p
-        + [0...20, i+=p]
-        DUP [0...20, i, i]
-    REPEAT
-
+    IF
+        DUP
+        DUP
+        DUP
+        *
+        BEGIN
+            DUP
+            21
+            <
+            WHILE
+            DUP
+            0
+            SWAP
+            2
+            +
+            WR
+            OVER
+            +
+        REPEAT
+        DROP
+    ELSE
+        DUP
+    ENDIF
 REPEAT
+WR#

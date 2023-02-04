@@ -35,7 +35,7 @@ commands = {
     "NOP",
     "ROT",
     "PUSH",
-    "."
+    ".",
     "OVER",
     "BEGIN",
     "DUP",
