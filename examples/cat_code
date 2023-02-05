@@ -1,0 +1,8 @@
+BEGIN
+    #in
+    READ
+    #out
+    WR
+    -1
+    WHILE
+REPEAT

@@ -1,3 +1,4 @@
+n: 20
 0
 BEGIN
     DUP
@@ -9,14 +10,14 @@ BEGIN
     +
     WR
     DUP
-    20
+    n
     <
     WHILE
 REPEAT
 1
 1
 BEGIN
-    20
+    n
     <
     WHILE
     1
@@ -56,7 +57,7 @@ REPEAT
 2
 BEGIN
     DUP
-    20
+    n
     <
     WHILE
     DUP
@@ -77,7 +78,9 @@ BEGIN
             OVER
             SWAP
             POW
-            20
+            n
+            1
+            +
             <
             WHILE
             1
@@ -101,7 +104,7 @@ BEGIN
     1
     +
     DUP
-    20
+    n
     <
     WHILE
     DUP
@@ -125,4 +128,8 @@ BEGIN
             WR
     ENDIF
 REPEAT
-WR#
+
+3
+READ
+#out
+WR

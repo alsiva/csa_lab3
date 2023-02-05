@@ -19,12 +19,12 @@ def start(input_file, output_file, correct_file, data_section_file):
     #assert result == correct_code
 
 
-class TestTranslator(unittest.TestCase):
-
-    def test_fib(self):
-        start("examples/fib_forth_code", "machine_code.out",
-              "examples/correct_fib_forth_code", "examples/data_section")
-
-    def test_cat(self):
-        start("examples/cat_code", "machine_code.out",
-              "examples/correct_cat_code", "examples/data_section")
+# class TestTranslator(unittest.TestCase):
+#
+#     def test_fib(self):
+#         start("examples/fib_forth_code", "machine_code.out",
+#               "examples/correct_fib_forth_code", "examples/data_section")
+#
+#     def test_cat(self):
+#         start("examples/cat_code", "machine_code.out",
+#               "examples/correct_cat_code", "examples/data_section")

@@ -7,13 +7,12 @@ word_ind
 WR
 
 BEGIN
-word_ind
-READ#
-0
-OVER
-<
-
-WHILE
-#out
-WR
+    word_ind
+    READ#
+    0
+    OVER
+    <
+    WHILE
+    #out
+    WR
 REPEAT

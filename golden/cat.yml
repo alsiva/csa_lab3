@@ -1,0 +1,174 @@
+source: |-
+    BEGIN
+        #in
+        READ
+        #out
+        WR
+        -1
+        WHILE
+    REPEAT
+
+data: |
+  [
+      48,
+      48
+  ]
+input: |-
+  Alsiva
+code: |-
+    [
+        {
+            "opcode": "BEGIN",
+            "term": [
+                1,
+                "BEGIN",
+                null
+            ]
+        },
+        {
+            "opcode": "PUSH",
+            "arg": 0,
+            "term": [
+                2,
+                "PUSH",
+                0
+            ]
+        },
+        {
+            "opcode": "READ_DIR",
+            "term": [
+                3,
+                "READ",
+                null
+            ]
+        },
+        {
+            "opcode": "PUSH",
+            "arg": 1,
+            "term": [
+                4,
+                "PUSH",
+                1
+            ]
+        },
+        {
+            "opcode": "WRITE_DIR",
+            "term": [
+                5,
+                "WR",
+                null
+            ]
+        },
+        {
+            "opcode": "PUSH",
+            "arg": "-1",
+            "term": [
+                6,
+                "PUSH",
+                "-1"
+            ]
+        },
+        {
+            "opcode": "JNT",
+            "arg": 8,
+            "term": [
+                7,
+                "WHILE",
+                null
+            ]
+        },
+        {
+            "opcode": "JMP",
+            "arg": 1,
+            "term": [
+                8,
+                "REPEAT",
+                null
+            ]
+        },
+        {
+            "opcode": "HALT",
+            "term": [
+                9,
+                "HALT",
+                null
+            ]
+        }
+    ]
+output: |
+  source LoC: 8 code instr: 9
+  ============================================================
+  output: Alsiva
+  instr_counter:  44 ticks: 57
+log: |
+  DEBUG    root:machine.py:186 {TICK: 1, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 2, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:186 {TICK: 3, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  INFO     root:machine.py:70 input: l,s,i,v,a << A
+  DEBUG    root:machine.py:186 {TICK: 4, PC: 3, HEAD: 1, TOS: 0, 0, 65}  PUSH 1 ('1' @ 4:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 5, PC: 4, HEAD: 2, TOS: 0, 65, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:186 {TICK: 6, PC: 4, HEAD: 2, TOS: 0, 65, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:86 output:  << A
+  DEBUG    root:machine.py:186 {TICK: 7, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 8, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+  DEBUG    root:machine.py:186 {TICK: 9, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+  DEBUG    root:machine.py:186 {TICK: 10, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 11, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:186 {TICK: 12, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  INFO     root:machine.py:70 input: s,i,v,a << l
+  DEBUG    root:machine.py:186 {TICK: 13, PC: 3, HEAD: 1, TOS: 0, 0, 108}  PUSH 1 ('1' @ 4:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 14, PC: 4, HEAD: 2, TOS: 0, 108, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:186 {TICK: 15, PC: 4, HEAD: 2, TOS: 0, 108, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:86 output: A << l
+  DEBUG    root:machine.py:186 {TICK: 16, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 17, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+  DEBUG    root:machine.py:186 {TICK: 18, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+  DEBUG    root:machine.py:186 {TICK: 19, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 20, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:186 {TICK: 21, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  INFO     root:machine.py:70 input: i,v,a << s
+  DEBUG    root:machine.py:186 {TICK: 22, PC: 3, HEAD: 1, TOS: 0, 0, 115}  PUSH 1 ('1' @ 4:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 23, PC: 4, HEAD: 2, TOS: 0, 115, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:186 {TICK: 24, PC: 4, HEAD: 2, TOS: 0, 115, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:86 output: A,l << s
+  DEBUG    root:machine.py:186 {TICK: 25, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 26, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+  DEBUG    root:machine.py:186 {TICK: 27, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+  DEBUG    root:machine.py:186 {TICK: 28, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 29, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:186 {TICK: 30, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  INFO     root:machine.py:70 input: v,a << i
+  DEBUG    root:machine.py:186 {TICK: 31, PC: 3, HEAD: 1, TOS: 0, 0, 105}  PUSH 1 ('1' @ 4:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 32, PC: 4, HEAD: 2, TOS: 0, 105, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:186 {TICK: 33, PC: 4, HEAD: 2, TOS: 0, 105, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:86 output: A,l,s << i
+  DEBUG    root:machine.py:186 {TICK: 34, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 35, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+  DEBUG    root:machine.py:186 {TICK: 36, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+  DEBUG    root:machine.py:186 {TICK: 37, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 38, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:186 {TICK: 39, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  INFO     root:machine.py:70 input: a << v
+  DEBUG    root:machine.py:186 {TICK: 40, PC: 3, HEAD: 1, TOS: 0, 0, 118}  PUSH 1 ('1' @ 4:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 41, PC: 4, HEAD: 2, TOS: 0, 118, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:186 {TICK: 42, PC: 4, HEAD: 2, TOS: 0, 118, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:86 output: A,l,s,i << v
+  DEBUG    root:machine.py:186 {TICK: 43, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 44, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+  DEBUG    root:machine.py:186 {TICK: 45, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+  DEBUG    root:machine.py:186 {TICK: 46, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 47, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:186 {TICK: 48, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  INFO     root:machine.py:70 input:  << a
+  DEBUG    root:machine.py:186 {TICK: 49, PC: 3, HEAD: 1, TOS: 0, 0, 97}  PUSH 1 ('1' @ 4:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 50, PC: 4, HEAD: 2, TOS: 0, 97, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:186 {TICK: 51, PC: 4, HEAD: 2, TOS: 0, 97, 1}  WRITE_DIR  ('None' @ 5:WR)
+  DEBUG    root:machine.py:86 output: A,l,s,i,v << a
+  DEBUG    root:machine.py:186 {TICK: 52, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 53, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+  DEBUG    root:machine.py:186 {TICK: 54, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+  DEBUG    root:machine.py:186 {TICK: 55, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+  DEBUG    root:machine.py:186 {TICK: 56, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:186 {TICK: 57, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+  DEBUG    root:machine.py:64 Input buffer is Empty
+

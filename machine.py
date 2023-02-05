@@ -58,8 +58,11 @@ class Memory:
         if self.data_address != 0:
             return self.data[self.data_address]
 
-        assert len(self.input_buffer) != 0, \
-            "Trying to read from empty buffer"
+
+
+        if len(self.input_buffer) == 0:
+            logging.debug('Input buffer is Empty')
+            raise StopIteration()
 
         value_as_string = self.input_buffer.pop(0)
         value = ord(value_as_string[0])
@@ -80,7 +83,7 @@ class Memory:
             value = chr(value)
 
         value = str(value)
-        logging.info('output: %s << %s', ','.join(self.output_buffer), value)
+        logging.debug('output: %s << %s', ','.join(self.output_buffer), value)
         self.output_buffer.append(value)
 
     def get_instruction(self, pc):
@@ -422,10 +425,9 @@ def main(args):
     if input_file != "":
         with open(input_file, encoding="utf-8") as file:
             input_text = file.read()
-            if input_text != "":
-                input_list = json.loads(input_text)
-            else:
-                input_list = []
+            input_list = []
+            for ch in input_text:
+                input_list.append(ch)
     else:
         input_list = []
 
