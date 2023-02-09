@@ -9,6 +9,7 @@
 import sys
 
 from isa import Opcode, write_code, Term
+from enum import Enum, auto
 
 s2o = {
     "OVER": Opcode.OVER.value,
@@ -69,7 +70,8 @@ vars_dict = {
 }
 """
 
-#words_dict = {}
+
+# words_dict = {}
 
 
 def is_number(_str):
@@ -95,19 +97,17 @@ def check_brackets(terms):
         assert deep_if >= 0 and deep_else >= 0, "Unbalanced brackets!"
     assert deep_if == 0 and deep_else == 0, "Unbalanced brackets!"
 
-    deep_beg = 0
-    deep_while = 0
+    loop_stack = []
     for term in terms:
         if term.com == "BEGIN":
-            deep_beg += 1
+            loop_stack.append("BEGIN")
         if term.com == "WHILE":
-            deep_beg -= 1
-            deep_while += 1
+            assert loop_stack.pop() != "WHILE", "More than one while in one cycle!"
+            loop_stack.append("WHILE")
         if term.com == "REPEAT":
-            assert deep_beg + 1 == deep_while, "Unbalanced brackets!"
-            deep_while -= 1
-        assert deep_beg >= 0 and deep_while >= 0, "Unbalanced brackets!"
-    assert deep_beg == 0 and deep_while == 0, "Unbalanced brackets!"
+            assert loop_stack.pop() == "WHILE", 'Infinite loop'
+
+    assert len(loop_stack) == 0, 'Unbalanced brackets'
 
 
 def translate(file):
@@ -156,7 +156,7 @@ def translate(file):
             else:
                 terms.append(Term(line_num, "PUSH", com[0]))
 
-    #check_brackets(terms)
+    check_brackets(terms)
 
     code = []
     jmp_stack = []
