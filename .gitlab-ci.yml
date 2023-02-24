@@ -1,7 +1,7 @@
 lab3-example:
   stage: test
   image:
-    name: python-tools
+    name: ubuntu:latest
     entrypoint: [""]
   script:
     - pip install pytest-golden
