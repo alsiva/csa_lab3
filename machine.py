@@ -58,8 +58,6 @@ class Memory:
         if self.data_address != 0:
             return self.data[self.data_address]
 
-
-
         if len(self.input_buffer) == 0:
             logging.debug('Input buffer is Empty')
             raise StopIteration()

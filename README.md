@@ -95,7 +95,6 @@ Data memory
 - `Память`:
     - адресуется через регистр `data_address`;
     - может быть записана:
-        - с порта ввода;
         - с макушки стека;
     - может быть прочитана:
         - в буффер;
@@ -265,25 +264,19 @@ Data memory
 - Для журнала состояний процессора используется стандартный модуль logging.
 - Количество инструкций для моделирования ограничено hardcoded константой.
 - Остановка моделирования осуществляется при помощи исключений:
-    - `EOFError` -- если нет данных для чтения из порта ввода-вывода;
     - `StopIteration` -- если выполнена инструкция `halt`.
 - Управление симуляцией реализовано в функции `simulate`.
 
 ## Апробация
 
-В качестве тестов для `machine` использовано 5 тестов:
+В качестве тестов использовано 3 алгоритма:
 
 1. [hello world](examples/hello_world_code).
 2. [cat](examples/cat_code) -- программа `cat`, повторяем ввод на выводе.
-3. [prob2](examples/fib_forth_code) -- программа, решающая 2 проблему Эйлера.
-4. [if](examples/if_code) -- программа, проверяющая корректность работы IF.
-5. [while](examples/while_code) -- программа, проверяющая корректность работы WHILE.
+3. [prob2](examples/prob5_code) -- программа, решающая 5 проблему Эйлера.
 
-В качестве тестов для `translator` использовано 2 теста:
-1.  [cat](examples/correct_cat_code) -- программа `cat`, повторяем ввод на выводе.
-2. [prob2](examples/correct_fib_forth_code) -- программа, решающая 2 проблему Эйлера.
+Голден-тесты: [golden](golden)
 
-Интеграционные тесты реализованы тут: [machine_integration_test](machine_integration_test.py) и [translator_integration_test](translator_integration_test.py)
 
 CI:
 
@@ -294,6 +287,7 @@ lab3-example:
     name: python-tools
     entrypoint: [""]
   script:
+    - pip install pytest-golden
     - python3-coverage run -m pytest --verbose
     - find . -type f -name "*.py" | xargs -t python3-coverage report
     - find . -type f -name "*.py" | xargs -t pep8 --ignore=E501
@@ -312,23 +306,18 @@ lab3-example:
 
 ``` console
 > cat examples/cat_code
-0
--1
--1
--1
--1
--1
 BEGIN
-WHILE
-#in
-READ
-#out
-WR
+    #in
+    READ
+    #out
+    WR
+    -1
+    WHILE
 REPEAT
 > cat examples/input_hello
-["h","e","l","l","o"]
+Alsiva
 > ./translator.py examples/cat.code target.out examples/data_section
-source LoC: 13 code instr: 14
+source LoC: 8 code instr: 9
 > cat target.out 
 [
     {
@@ -455,70 +444,82 @@ source LoC: 13 code instr: 14
     }
 ]
 > ./machine.py machine_code.out examples/data_section examples/input_hello
-DEBUG:root:{TICK: 1, PC: 1, HEAD: 1, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 2:PUSH)
-DEBUG:root:{TICK: 2, PC: 2, HEAD: 2, TOS: 0, 0, -1}  PUSH -1 ('-1' @ 3:PUSH)
-DEBUG:root:{TICK: 3, PC: 3, HEAD: 3, TOS: 0, -1, -1}  PUSH -1 ('-1' @ 4:PUSH)
-DEBUG:root:{TICK: 4, PC: 4, HEAD: 4, TOS: -1, -1, -1}  PUSH -1 ('-1' @ 5:PUSH)
-DEBUG:root:{TICK: 5, PC: 5, HEAD: 5, TOS: -1, -1, -1}  PUSH -1 ('-1' @ 6:PUSH)
-DEBUG:root:{TICK: 6, PC: 6, HEAD: 6, TOS: -1, -1, -1}  BEGIN  ('None' @ 7:BEGIN)
-DEBUG:root:{TICK: 7, PC: 7, HEAD: 6, TOS: -1, -1, -1}  JNT 13 ('None' @ 8:WHILE)
-DEBUG:root:{TICK: 8, PC: 8, HEAD: 5, TOS: -1, -1, -1}  PUSH 0 ('0' @ 9:PUSH)
-DEBUG:root:{TICK: 9, PC: 9, HEAD: 6, TOS: -1, -1, 0}  READ_DIR  ('None' @ 10:READ)
-DEBUG:root:{TICK: 10, PC: 9, HEAD: 5, TOS: -1, -1, -1}  READ_DIR  ('None' @ 10:READ)
-INFO:root:input: e,l,l,o << h
-DEBUG:root:{TICK: 11, PC: 10, HEAD: 6, TOS: -1, -1, 104}  PUSH 1 ('1' @ 11:PUSH)
-DEBUG:root:{TICK: 12, PC: 11, HEAD: 7, TOS: -1, 104, 1}  WRITE_DIR  ('None' @ 12:WR)
-DEBUG:root:{TICK: 13, PC: 11, HEAD: 7, TOS: -1, 104, 1}  WRITE_DIR  ('None' @ 12:WR)
-INFO:root:output:  << h
-DEBUG:root:{TICK: 14, PC: 12, HEAD: 5, TOS: -1, -1, -1}  JMP 7 ('None' @ 13:REPEAT)
-DEBUG:root:{TICK: 15, PC: 7, HEAD: 5, TOS: -1, -1, -1}  JNT 13 ('None' @ 8:WHILE)
-DEBUG:root:{TICK: 16, PC: 8, HEAD: 4, TOS: -1, -1, -1}  PUSH 0 ('0' @ 9:PUSH)
-DEBUG:root:{TICK: 17, PC: 9, HEAD: 5, TOS: -1, -1, 0}  READ_DIR  ('None' @ 10:READ)
-DEBUG:root:{TICK: 18, PC: 9, HEAD: 4, TOS: -1, -1, -1}  READ_DIR  ('None' @ 10:READ)
-INFO:root:input: l,l,o << e
-DEBUG:root:{TICK: 19, PC: 10, HEAD: 5, TOS: -1, -1, 101}  PUSH 1 ('1' @ 11:PUSH)
-DEBUG:root:{TICK: 20, PC: 11, HEAD: 6, TOS: -1, 101, 1}  WRITE_DIR  ('None' @ 12:WR)
-DEBUG:root:{TICK: 21, PC: 11, HEAD: 6, TOS: -1, 101, 1}  WRITE_DIR  ('None' @ 12:WR)
-INFO:root:output: h << e
-DEBUG:root:{TICK: 22, PC: 12, HEAD: 4, TOS: -1, -1, -1}  JMP 7 ('None' @ 13:REPEAT)
-DEBUG:root:{TICK: 23, PC: 7, HEAD: 4, TOS: -1, -1, -1}  JNT 13 ('None' @ 8:WHILE)
-DEBUG:root:{TICK: 24, PC: 8, HEAD: 3, TOS: 0, -1, -1}  PUSH 0 ('0' @ 9:PUSH)
-DEBUG:root:{TICK: 25, PC: 9, HEAD: 4, TOS: -1, -1, 0}  READ_DIR  ('None' @ 10:READ)
-DEBUG:root:{TICK: 26, PC: 9, HEAD: 3, TOS: 0, -1, -1}  READ_DIR  ('None' @ 10:READ)
-INFO:root:input: l,o << l
-DEBUG:root:{TICK: 27, PC: 10, HEAD: 4, TOS: -1, -1, 108}  PUSH 1 ('1' @ 11:PUSH)
-DEBUG:root:{TICK: 28, PC: 11, HEAD: 5, TOS: -1, 108, 1}  WRITE_DIR  ('None' @ 12:WR)
-DEBUG:root:{TICK: 29, PC: 11, HEAD: 5, TOS: -1, 108, 1}  WRITE_DIR  ('None' @ 12:WR)
-INFO:root:output: h,e << l
-DEBUG:root:{TICK: 30, PC: 12, HEAD: 3, TOS: 0, -1, -1}  JMP 7 ('None' @ 13:REPEAT)
-DEBUG:root:{TICK: 31, PC: 7, HEAD: 3, TOS: 0, -1, -1}  JNT 13 ('None' @ 8:WHILE)
-DEBUG:root:{TICK: 32, PC: 8, HEAD: 2, TOS: 0, 0, -1}  PUSH 0 ('0' @ 9:PUSH)
-DEBUG:root:{TICK: 33, PC: 9, HEAD: 3, TOS: 0, -1, 0}  READ_DIR  ('None' @ 10:READ)
-DEBUG:root:{TICK: 34, PC: 9, HEAD: 2, TOS: 0, 0, -1}  READ_DIR  ('None' @ 10:READ)
-INFO:root:input: o << l
-DEBUG:root:{TICK: 35, PC: 10, HEAD: 3, TOS: 0, -1, 108}  PUSH 1 ('1' @ 11:PUSH)
-DEBUG:root:{TICK: 36, PC: 11, HEAD: 4, TOS: -1, 108, 1}  WRITE_DIR  ('None' @ 12:WR)
-DEBUG:root:{TICK: 37, PC: 11, HEAD: 4, TOS: -1, 108, 1}  WRITE_DIR  ('None' @ 12:WR)
-INFO:root:output: h,e,l << l
-DEBUG:root:{TICK: 38, PC: 12, HEAD: 2, TOS: 0, 0, -1}  JMP 7 ('None' @ 13:REPEAT)
-DEBUG:root:{TICK: 39, PC: 7, HEAD: 2, TOS: 0, 0, -1}  JNT 13 ('None' @ 8:WHILE)
-DEBUG:root:{TICK: 40, PC: 8, HEAD: 1, TOS: 0, 0, 0}  PUSH 0 ('0' @ 9:PUSH)
-DEBUG:root:{TICK: 41, PC: 9, HEAD: 2, TOS: 0, 0, 0}  READ_DIR  ('None' @ 10:READ)
-DEBUG:root:{TICK: 42, PC: 9, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 10:READ)
-INFO:root:input:  << o
-DEBUG:root:{TICK: 43, PC: 10, HEAD: 2, TOS: 0, 0, 111}  PUSH 1 ('1' @ 11:PUSH)
-DEBUG:root:{TICK: 44, PC: 11, HEAD: 3, TOS: 0, 111, 1}  WRITE_DIR  ('None' @ 12:WR)
-DEBUG:root:{TICK: 45, PC: 11, HEAD: 3, TOS: 0, 111, 1}  WRITE_DIR  ('None' @ 12:WR)
-INFO:root:output: h,e,l,l << o
-DEBUG:root:{TICK: 46, PC: 12, HEAD: 1, TOS: 0, 0, 0}  JMP 7 ('None' @ 13:REPEAT)
-DEBUG:root:{TICK: 47, PC: 7, HEAD: 1, TOS: 0, 0, 0}  JNT 13 ('None' @ 8:WHILE)
-DEBUG:root:{TICK: 48, PC: 13, HEAD: 0, TOS: 0, 0, 0}  HALT  ('None' @ 14:HALT)
-output: hello
-instr_counter:  38 ticks: 48
+DEBUG:root:{TICK: 1, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+DEBUG:root:{TICK: 2, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:{TICK: 3, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+INFO:root:input: l,s,i,v,a << A
+DEBUG:root:{TICK: 4, PC: 3, HEAD: 1, TOS: 0, 0, 65}  PUSH 1 ('1' @ 4:PUSH)
+DEBUG:root:{TICK: 5, PC: 4, HEAD: 2, TOS: 0, 65, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:{TICK: 6, PC: 4, HEAD: 2, TOS: 0, 65, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:output:  << A
+DEBUG:root:{TICK: 7, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+DEBUG:root:{TICK: 8, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+DEBUG:root:{TICK: 9, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+DEBUG:root:{TICK: 10, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+DEBUG:root:{TICK: 11, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:{TICK: 12, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+INFO:root:input: s,i,v,a << l
+DEBUG:root:{TICK: 13, PC: 3, HEAD: 1, TOS: 0, 0, 108}  PUSH 1 ('1' @ 4:PUSH)
+DEBUG:root:{TICK: 14, PC: 4, HEAD: 2, TOS: 0, 108, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:{TICK: 15, PC: 4, HEAD: 2, TOS: 0, 108, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:output: A << l
+DEBUG:root:{TICK: 16, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+DEBUG:root:{TICK: 17, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+DEBUG:root:{TICK: 18, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+DEBUG:root:{TICK: 19, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+DEBUG:root:{TICK: 20, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:{TICK: 21, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+INFO:root:input: i,v,a << s
+DEBUG:root:{TICK: 22, PC: 3, HEAD: 1, TOS: 0, 0, 115}  PUSH 1 ('1' @ 4:PUSH)
+DEBUG:root:{TICK: 23, PC: 4, HEAD: 2, TOS: 0, 115, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:{TICK: 24, PC: 4, HEAD: 2, TOS: 0, 115, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:output: A,l << s
+DEBUG:root:{TICK: 25, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+DEBUG:root:{TICK: 26, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+DEBUG:root:{TICK: 27, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+DEBUG:root:{TICK: 28, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+DEBUG:root:{TICK: 29, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:{TICK: 30, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+INFO:root:input: v,a << i
+DEBUG:root:{TICK: 31, PC: 3, HEAD: 1, TOS: 0, 0, 105}  PUSH 1 ('1' @ 4:PUSH)
+DEBUG:root:{TICK: 32, PC: 4, HEAD: 2, TOS: 0, 105, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:{TICK: 33, PC: 4, HEAD: 2, TOS: 0, 105, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:output: A,l,s << i
+DEBUG:root:{TICK: 34, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+DEBUG:root:{TICK: 35, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+DEBUG:root:{TICK: 36, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+DEBUG:root:{TICK: 37, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+DEBUG:root:{TICK: 38, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:{TICK: 39, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+INFO:root:input: a << v
+DEBUG:root:{TICK: 40, PC: 3, HEAD: 1, TOS: 0, 0, 118}  PUSH 1 ('1' @ 4:PUSH)
+DEBUG:root:{TICK: 41, PC: 4, HEAD: 2, TOS: 0, 118, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:{TICK: 42, PC: 4, HEAD: 2, TOS: 0, 118, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:output: A,l,s,i << v
+DEBUG:root:{TICK: 43, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+DEBUG:root:{TICK: 44, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+DEBUG:root:{TICK: 45, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+DEBUG:root:{TICK: 46, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+DEBUG:root:{TICK: 47, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:{TICK: 48, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+INFO:root:input:  << a
+DEBUG:root:{TICK: 49, PC: 3, HEAD: 1, TOS: 0, 0, 97}  PUSH 1 ('1' @ 4:PUSH)
+DEBUG:root:{TICK: 50, PC: 4, HEAD: 2, TOS: 0, 97, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:{TICK: 51, PC: 4, HEAD: 2, TOS: 0, 97, 1}  WRITE_DIR  ('None' @ 5:WR)
+DEBUG:root:output: A,l,s,i,v << a
+DEBUG:root:{TICK: 52, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
+DEBUG:root:{TICK: 53, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
+DEBUG:root:{TICK: 54, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
+DEBUG:root:{TICK: 55, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
+DEBUG:root:{TICK: 56, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:{TICK: 57, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
+DEBUG:root:Input buffer is Empty
+output: Alsiva
+instr_counter:  44 ticks: 57
 ```
 
-| ФИО         | алг.  | code байт | code инстр. | инстр. | такт.  | вариант                                                  |
-|-------------|-------|-----------|-------------|--------|--------|----------------------------------------------------------|
-| Иванов А.А. | hello | -         | 14          | 118    | 222    | forth, stack, neum, hw, tick, struct, stream, mem, prob5 |
-| Иванов А.А. | cat   | -         | 9           | limit  | 309    | forth, stack, neum, hw, tick, struct, stream, mem, prob5 |
-| Иванов А.А. | prob5 | -         | 40          | 654    | 822    | forth, stack, neum, hw, tick, struct, stream, mem, prob5 |
+| ФИО         | алг.  | code инстр. | инстр. | такт. | вариант                                                  |
+|-------------|-------|-------------|--------|-------|----------------------------------------------------------|
+| Иванов А.А. | hello | 16          | 118    | 222   | forth, stack, neum, hw, tick, struct, stream, mem, prob5 |
+| Иванов А.А. | cat   | 8           | limit  | 57    | forth, stack, neum, hw, tick, struct, stream, mem, prob5 |
+| Иванов А.А. | prob5 | 132         | 654    | 2239  | forth, stack, neum, hw, tick, struct, stream, mem, prob5 |

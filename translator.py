@@ -9,7 +9,7 @@
 import sys
 
 from isa import Opcode, write_code, Term
-from enum import Enum, auto
+
 
 s2o = {
     "OVER": Opcode.OVER.value,
@@ -62,17 +62,6 @@ commands = {
     "READ",
     "READ#"
 }
-
-"""
-vars_dict = {
-    "#IN": 0,
-    "#OUT": 1
-}
-"""
-
-
-# words_dict = {}
-
 
 def is_number(_str):
     try:
