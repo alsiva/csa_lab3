@@ -16,6 +16,7 @@ import pytest
 import machine
 import translator
 
+
 @pytest.mark.golden_test("golden/*.yml")
 def test_whole_by_golden(golden, caplog):
     # Установим уровень отладочного вывода на DEBUG
@@ -34,7 +35,7 @@ def test_whole_by_golden(golden, caplog):
             file.write(golden["source"])
         with open(input_stream, "w", encoding="utf-8") as file:
             file.write(golden["input"])
-        with open (data, 'w', encoding="utf-8") as file:
+        with open(data, 'w', encoding="utf-8") as file:
             file.write(golden["data"])
 
         # Запускаем транслятор и собираем весь стандартный вывод в переменную
@@ -53,4 +54,3 @@ def test_whole_by_golden(golden, caplog):
         assert code == golden.out["code"]
         assert stdout.getvalue() == golden.out["output"]
         assert caplog.text == golden.out["log"]
-

@@ -10,7 +10,6 @@ import sys
 
 from isa import Opcode, write_code, Term
 
-
 s2o = {
     "OVER": Opcode.OVER.value,
     "POW": Opcode.POW.value,
@@ -62,6 +61,7 @@ commands = {
     "READ",
     "READ#"
 }
+
 
 def is_number(_str):
     try:
