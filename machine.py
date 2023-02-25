@@ -9,7 +9,6 @@
 # pylint: disable=too-many-return-statements
 # pylint: disable=line-too-long
 
-import json
 
 import logging
 import sys
@@ -117,11 +116,6 @@ class DataPath:
         self.head += sel_val
         assert 0 <= self.head < self.memory_size, \
             f"out of memory: {self.head}"
-
-    def read_from_buffer(self):
-        assert len(self.input_buffer) > 0, \
-            f"You can't read from empty buffer"
-        self.memory.data[0] = ord(self.input_buffer.pop(0)["char"])
 
     def push(self, val):
         self.stack[self.head] = val
