@@ -380,7 +380,7 @@ class ControlUnit:
         opcode = instr["opcode"]
         arg = instr.get("arg", "")
         term = instr["term"]
-        action = f"{opcode} {arg} ('{term.arg}' @ {term.line_num}:{term.com})"
+        action = f"{opcode.__class__.__name__}.{opcode.name} {arg} ('{term.arg}' @ {term.line_num}:{term.com})"
         return f"{state} {action}"
 
 
