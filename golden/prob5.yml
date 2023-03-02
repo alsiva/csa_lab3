@@ -3501,4 +3501,3 @@ log: |
   DEBUG machine:tick {TICK: 2238, PC: 130, HEAD: 26, TOS: 20, 232792560, 1}  Opcode.WR_DIR  ('None' @ 135:WR)
   DEBUG machine:write output:  << 232792560
   DEBUG machine:tick {TICK: 2239, PC: 131, HEAD: 24, TOS: 20, 20, 20}  Opcode.HALT  ('None' @ 132:HALT)
-

@@ -387,4 +387,3 @@ log: |
   DEBUG machine:tick {TICK: 220, PC: 8, HEAD: 1, TOS: 0, 0, 0}  Opcode.LT  ('None' @ 14:<)
   DEBUG machine:tick {TICK: 221, PC: 9, HEAD: 2, TOS: 0, 0, 0}  Opcode.JNT 13 ('None' @ 15:WHILE)
   DEBUG machine:tick {TICK: 222, PC: 13, HEAD: 1, TOS: 0, 0, 0}  Opcode.HALT  ('None' @ 14:HALT)
-

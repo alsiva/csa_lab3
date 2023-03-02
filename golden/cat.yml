@@ -171,4 +171,3 @@ log: |
   DEBUG machine:tick {TICK: 56, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
   DEBUG machine:tick {TICK: 57, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
   DEBUG machine:read Input buffer is Empty
-
