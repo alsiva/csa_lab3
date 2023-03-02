@@ -1,12 +1,8 @@
 lab3-example:
   stage: test
   image:
-    name: ubuntu:latest
-    entrypoint: [""]
-  before_script:
-    - ln -snf /usr/share/zoneinfo/Europe/Moscow /etc/localtime && echo "Europe/Moscow" > /etc/timezone
-    - apt-get update && apt-get install -qy python3 python3-pip python3-pytest pylint pep8 python3-coverage mypy python3-pytest-golden
-    - rm -rf /var/lib/apt/lists/*
+    name: python-tools
+    entrypoint: [ "" ]
   script:
     - python3-coverage run -m pytest --verbose
     - find . -type f -name "*.py" | xargs -t python3-coverage report
