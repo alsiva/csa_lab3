@@ -101,73 +101,74 @@ output: |
   output: Alsiva
   instr_counter:  44 ticks: 57
 log: |
-  DEBUG    root:machine.py:178 {TICK: 1, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 2, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:178 {TICK: 3, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  INFO     root:machine.py:67 input: l,s,i,v,a << A
-  DEBUG    root:machine.py:178 {TICK: 4, PC: 3, HEAD: 1, TOS: 0, 0, 65}  PUSH 1 ('1' @ 4:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 5, PC: 4, HEAD: 2, TOS: 0, 65, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:178 {TICK: 6, PC: 4, HEAD: 2, TOS: 0, 65, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:83 output:  << A
-  DEBUG    root:machine.py:178 {TICK: 7, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 8, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
-  DEBUG    root:machine.py:178 {TICK: 9, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
-  DEBUG    root:machine.py:178 {TICK: 10, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 11, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:178 {TICK: 12, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  INFO     root:machine.py:67 input: s,i,v,a << l
-  DEBUG    root:machine.py:178 {TICK: 13, PC: 3, HEAD: 1, TOS: 0, 0, 108}  PUSH 1 ('1' @ 4:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 14, PC: 4, HEAD: 2, TOS: 0, 108, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:178 {TICK: 15, PC: 4, HEAD: 2, TOS: 0, 108, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:83 output: A << l
-  DEBUG    root:machine.py:178 {TICK: 16, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 17, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
-  DEBUG    root:machine.py:178 {TICK: 18, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
-  DEBUG    root:machine.py:178 {TICK: 19, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 20, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:178 {TICK: 21, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  INFO     root:machine.py:67 input: i,v,a << s
-  DEBUG    root:machine.py:178 {TICK: 22, PC: 3, HEAD: 1, TOS: 0, 0, 115}  PUSH 1 ('1' @ 4:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 23, PC: 4, HEAD: 2, TOS: 0, 115, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:178 {TICK: 24, PC: 4, HEAD: 2, TOS: 0, 115, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:83 output: A,l << s
-  DEBUG    root:machine.py:178 {TICK: 25, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 26, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
-  DEBUG    root:machine.py:178 {TICK: 27, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
-  DEBUG    root:machine.py:178 {TICK: 28, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 29, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:178 {TICK: 30, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  INFO     root:machine.py:67 input: v,a << i
-  DEBUG    root:machine.py:178 {TICK: 31, PC: 3, HEAD: 1, TOS: 0, 0, 105}  PUSH 1 ('1' @ 4:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 32, PC: 4, HEAD: 2, TOS: 0, 105, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:178 {TICK: 33, PC: 4, HEAD: 2, TOS: 0, 105, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:83 output: A,l,s << i
-  DEBUG    root:machine.py:178 {TICK: 34, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 35, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
-  DEBUG    root:machine.py:178 {TICK: 36, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
-  DEBUG    root:machine.py:178 {TICK: 37, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 38, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:178 {TICK: 39, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  INFO     root:machine.py:67 input: a << v
-  DEBUG    root:machine.py:178 {TICK: 40, PC: 3, HEAD: 1, TOS: 0, 0, 118}  PUSH 1 ('1' @ 4:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 41, PC: 4, HEAD: 2, TOS: 0, 118, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:178 {TICK: 42, PC: 4, HEAD: 2, TOS: 0, 118, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:83 output: A,l,s,i << v
-  DEBUG    root:machine.py:178 {TICK: 43, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 44, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
-  DEBUG    root:machine.py:178 {TICK: 45, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
-  DEBUG    root:machine.py:178 {TICK: 46, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 47, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:178 {TICK: 48, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  INFO     root:machine.py:67 input:  << a
-  DEBUG    root:machine.py:178 {TICK: 49, PC: 3, HEAD: 1, TOS: 0, 0, 97}  PUSH 1 ('1' @ 4:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 50, PC: 4, HEAD: 2, TOS: 0, 97, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:178 {TICK: 51, PC: 4, HEAD: 2, TOS: 0, 97, 1}  WRITE_DIR  ('None' @ 5:WR)
-  DEBUG    root:machine.py:83 output: A,l,s,i,v << a
-  DEBUG    root:machine.py:178 {TICK: 52, PC: 5, HEAD: 0, TOS: 0, 0, 0}  PUSH -1 ('-1' @ 6:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 53, PC: 6, HEAD: 1, TOS: 0, 0, -1}  JNT 8 ('None' @ 7:WHILE)
-  DEBUG    root:machine.py:178 {TICK: 54, PC: 7, HEAD: 0, TOS: 0, 0, 0}  JMP 1 ('None' @ 8:REPEAT)
-  DEBUG    root:machine.py:178 {TICK: 55, PC: 1, HEAD: 0, TOS: 0, 0, 0}  PUSH 0 ('0' @ 2:PUSH)
-  DEBUG    root:machine.py:178 {TICK: 56, PC: 2, HEAD: 1, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:178 {TICK: 57, PC: 2, HEAD: 0, TOS: 0, 0, 0}  READ_DIR  ('None' @ 3:READ)
-  DEBUG    root:machine.py:61 Input buffer is Empty
+  DEBUG machine:tick {TICK: 1, PC: 1, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH 0 ('0' @ 2:PUSH)
+  DEBUG machine:tick {TICK: 2, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:tick {TICK: 3, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  INFO machine:read input: l,s,i,v,a << A
+  DEBUG machine:tick {TICK: 4, PC: 3, HEAD: 1, TOS: 0, 0, 65}  Opcode.PUSH 1 ('1' @ 4:PUSH)
+  DEBUG machine:tick {TICK: 5, PC: 4, HEAD: 2, TOS: 0, 65, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:tick {TICK: 6, PC: 4, HEAD: 2, TOS: 0, 65, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:write output:  << A
+  DEBUG machine:tick {TICK: 7, PC: 5, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG machine:tick {TICK: 8, PC: 6, HEAD: 1, TOS: 0, 0, -1}  Opcode.JNT 8 ('None' @ 7:WHILE)
+  DEBUG machine:tick {TICK: 9, PC: 7, HEAD: 0, TOS: 0, 0, 0}  Opcode.JMP 1 ('None' @ 8:REPEAT)
+  DEBUG machine:tick {TICK: 10, PC: 1, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH 0 ('0' @ 2:PUSH)
+  DEBUG machine:tick {TICK: 11, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:tick {TICK: 12, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  INFO machine:read input: s,i,v,a << l
+  DEBUG machine:tick {TICK: 13, PC: 3, HEAD: 1, TOS: 0, 0, 108}  Opcode.PUSH 1 ('1' @ 4:PUSH)
+  DEBUG machine:tick {TICK: 14, PC: 4, HEAD: 2, TOS: 0, 108, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:tick {TICK: 15, PC: 4, HEAD: 2, TOS: 0, 108, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:write output: A << l
+  DEBUG machine:tick {TICK: 16, PC: 5, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG machine:tick {TICK: 17, PC: 6, HEAD: 1, TOS: 0, 0, -1}  Opcode.JNT 8 ('None' @ 7:WHILE)
+  DEBUG machine:tick {TICK: 18, PC: 7, HEAD: 0, TOS: 0, 0, 0}  Opcode.JMP 1 ('None' @ 8:REPEAT)
+  DEBUG machine:tick {TICK: 19, PC: 1, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH 0 ('0' @ 2:PUSH)
+  DEBUG machine:tick {TICK: 20, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:tick {TICK: 21, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  INFO machine:read input: i,v,a << s
+  DEBUG machine:tick {TICK: 22, PC: 3, HEAD: 1, TOS: 0, 0, 115}  Opcode.PUSH 1 ('1' @ 4:PUSH)
+  DEBUG machine:tick {TICK: 23, PC: 4, HEAD: 2, TOS: 0, 115, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:tick {TICK: 24, PC: 4, HEAD: 2, TOS: 0, 115, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:write output: A,l << s
+  DEBUG machine:tick {TICK: 25, PC: 5, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG machine:tick {TICK: 26, PC: 6, HEAD: 1, TOS: 0, 0, -1}  Opcode.JNT 8 ('None' @ 7:WHILE)
+  DEBUG machine:tick {TICK: 27, PC: 7, HEAD: 0, TOS: 0, 0, 0}  Opcode.JMP 1 ('None' @ 8:REPEAT)
+  DEBUG machine:tick {TICK: 28, PC: 1, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH 0 ('0' @ 2:PUSH)
+  DEBUG machine:tick {TICK: 29, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:tick {TICK: 30, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  INFO machine:read input: v,a << i
+  DEBUG machine:tick {TICK: 31, PC: 3, HEAD: 1, TOS: 0, 0, 105}  Opcode.PUSH 1 ('1' @ 4:PUSH)
+  DEBUG machine:tick {TICK: 32, PC: 4, HEAD: 2, TOS: 0, 105, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:tick {TICK: 33, PC: 4, HEAD: 2, TOS: 0, 105, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:write output: A,l,s << i
+  DEBUG machine:tick {TICK: 34, PC: 5, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG machine:tick {TICK: 35, PC: 6, HEAD: 1, TOS: 0, 0, -1}  Opcode.JNT 8 ('None' @ 7:WHILE)
+  DEBUG machine:tick {TICK: 36, PC: 7, HEAD: 0, TOS: 0, 0, 0}  Opcode.JMP 1 ('None' @ 8:REPEAT)
+  DEBUG machine:tick {TICK: 37, PC: 1, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH 0 ('0' @ 2:PUSH)
+  DEBUG machine:tick {TICK: 38, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:tick {TICK: 39, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  INFO machine:read input: a << v
+  DEBUG machine:tick {TICK: 40, PC: 3, HEAD: 1, TOS: 0, 0, 118}  Opcode.PUSH 1 ('1' @ 4:PUSH)
+  DEBUG machine:tick {TICK: 41, PC: 4, HEAD: 2, TOS: 0, 118, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:tick {TICK: 42, PC: 4, HEAD: 2, TOS: 0, 118, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:write output: A,l,s,i << v
+  DEBUG machine:tick {TICK: 43, PC: 5, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG machine:tick {TICK: 44, PC: 6, HEAD: 1, TOS: 0, 0, -1}  Opcode.JNT 8 ('None' @ 7:WHILE)
+  DEBUG machine:tick {TICK: 45, PC: 7, HEAD: 0, TOS: 0, 0, 0}  Opcode.JMP 1 ('None' @ 8:REPEAT)
+  DEBUG machine:tick {TICK: 46, PC: 1, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH 0 ('0' @ 2:PUSH)
+  DEBUG machine:tick {TICK: 47, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:tick {TICK: 48, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  INFO machine:read input:  << a
+  DEBUG machine:tick {TICK: 49, PC: 3, HEAD: 1, TOS: 0, 0, 97}  Opcode.PUSH 1 ('1' @ 4:PUSH)
+  DEBUG machine:tick {TICK: 50, PC: 4, HEAD: 2, TOS: 0, 97, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:tick {TICK: 51, PC: 4, HEAD: 2, TOS: 0, 97, 1}  Opcode.WR_DIR  ('None' @ 5:WR)
+  DEBUG machine:write output: A,l,s,i,v << a
+  DEBUG machine:tick {TICK: 52, PC: 5, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH -1 ('-1' @ 6:PUSH)
+  DEBUG machine:tick {TICK: 53, PC: 6, HEAD: 1, TOS: 0, 0, -1}  Opcode.JNT 8 ('None' @ 7:WHILE)
+  DEBUG machine:tick {TICK: 54, PC: 7, HEAD: 0, TOS: 0, 0, 0}  Opcode.JMP 1 ('None' @ 8:REPEAT)
+  DEBUG machine:tick {TICK: 55, PC: 1, HEAD: 0, TOS: 0, 0, 0}  Opcode.PUSH 0 ('0' @ 2:PUSH)
+  DEBUG machine:tick {TICK: 56, PC: 2, HEAD: 1, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:tick {TICK: 57, PC: 2, HEAD: 0, TOS: 0, 0, 0}  Opcode.READ_DIR  ('None' @ 3:READ)
+  DEBUG machine:read Input buffer is Empty
+
