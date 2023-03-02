@@ -1,0 +1,5 @@
+/.pytest_cache
+.coverage
+/venv
+Dockerfile
+machine_code.out
