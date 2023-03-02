@@ -3,6 +3,8 @@ lab3-example:
   image:
     name: python-tools
     entrypoint: [ "" ]
+  before_script:
+    - pip install pytest-golden
   script:
     - python3-coverage run -m pytest --verbose
     - find . -type f -name "*.py" | xargs -t python3-coverage report
