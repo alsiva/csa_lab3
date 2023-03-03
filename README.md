@@ -215,7 +215,7 @@ Data memory
 
 Реализовано в модуле: [machine](machine.py).
 
-![machine](../csa/img/machine.png)
+![machine](img/machine.png)
 
 Сигналы (обрабатываются за один такт, реализованы в виде методов класса Memory):
 
@@ -225,7 +225,7 @@ Data memory
 
 ### DataPath
 
-![data path](../csa/img/datapath.png)
+![data path](img/datapath.png)
 
 Сигналы (обрабатываются за один такт, реализованы в виде методов класса):
 
@@ -239,7 +239,7 @@ Data memory
 
 ### АЛУ
 
-![alu](../csa/img/alu.png)
+![alu](img/alu.png)
 
 Сигналы (обрабатываются за один такт, реализованы в виде методов класса):
 
