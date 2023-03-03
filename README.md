@@ -247,7 +247,7 @@ Data memory
 
 ### ControlUnit
 
-![control unit](../csa/img/control_unit.png)
+![control unit](img/control_unit.png)
 
 Реализован в классе `control_unit`.
 
