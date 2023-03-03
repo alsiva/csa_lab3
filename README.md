@@ -14,8 +14,7 @@ term ::= command
         | push_symbol
         | term term
 
-command ::= "NOP" | "MOD" | "+" | "<" | "NEGATE" | "INVERT" | "DUP" | "OVER" | "ROT" | "SWAP" | "DROP" 
-            | "INTERRUPT" | "INTERRUPT_END" 
+command ::= "NOP" | "MOD" | "+" | "<" | "NEGATE" | "INVERT" | "DUP" | "OVER" | "ROT" | "SWAP" | "DROP"  
             | "IF" | "ELSE" | "ENDIF" 
             | "WHILE" | "BEGIN" | "REPEAT"
             | READ | READ# | WR | WR#
